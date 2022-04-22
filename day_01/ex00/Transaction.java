@@ -1,4 +1,4 @@
-package ex03;
+package ex00;
 import java.util.UUID;
 
 public class Transaction {
@@ -9,8 +9,8 @@ public class Transaction {
     private String transfer;
     private Integer transferAmount;
 
-    public Transaction(User recipient, User sender, String transfer, Integer transferAmount) {
-
+    public Transaction(User recipient, User sender, String transfer, Integer transferAmount)
+    {
         this.identifier = UUID.randomUUID().toString();
         this.recipient = recipient;
         this.sender = sender;
@@ -27,7 +27,8 @@ public class Transaction {
         } else if (transfer.equals("INCOME") && transferAmount > 0) {
             this.transferAmount = transferAmount;
         } else {
-            System.out.println("Not valid transferAmount");
+            this.transferAmount = 0;
+            System.out.println("Not valid transfer amount");
             return ;
         }
     }

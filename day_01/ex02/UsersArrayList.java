@@ -7,15 +7,18 @@ public class UsersArrayList implements UsersList {
     private User[] usersList;
 
     public UsersArrayList(){
+
         this.usersList = new User[arrayLen];
     }
 
     private User[] updateArray(User[] usersList) {
+
         User newArray[] = new User[arrayLen + arrayLen / 2];
 
         for (int i = 0; i < arrayLen; i++) {
             newArray[i] = usersList[i];
         }
+
         arrayLen += arrayLen / 2;
         return (newArray);
     }
@@ -25,6 +28,7 @@ public class UsersArrayList implements UsersList {
         if (arrayIndex + 1 == 10) {
             usersList = updateArray(usersList);
         }
+
         usersList[arrayIndex] = newUser;
         arrayIndex++;
     }
@@ -36,6 +40,7 @@ public class UsersArrayList implements UsersList {
                 return (usersList[i]);
             }
         }
+
         throw new UserNotFoundException("User not found");
     }
 
@@ -44,6 +49,7 @@ public class UsersArrayList implements UsersList {
         if (index >= arrayIndex) {
             throw  new UserNotFoundException("User not found");
         }
+
         return (usersList[index]);
     }
 

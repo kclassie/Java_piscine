@@ -1,4 +1,4 @@
-package ex02;
+package ex00;
 import ex01.UserIdsGenerator;
 
 public class User {
@@ -15,22 +15,23 @@ public class User {
         if (balance >= 0) {
             this.balance = balance;
         } else {
+            this.balance = 0;
             System.out.printf("User %s: Not valid balance value.\n", this.name);
         }
     }
 
     public String getName() {
 
-        return (name);
+        return name;
     }
 
     public Integer getIdentifier() {
 
-        return (identifier);
+        return identifier;
     }
 
     public Integer getBalance() {
 
-        return (balance);
+        return balance;
     }
 }
