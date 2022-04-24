@@ -1,4 +1,5 @@
 public class HenThread implements Runnable {
+
     int count;
 
     public HenThread(int count) {
@@ -8,7 +9,8 @@ public class HenThread implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < this.count; i++)
+        for (int i = 0; i < this.count; i++) {
             System.out.println("Hen");
+        }
     }
 }

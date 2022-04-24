@@ -1,6 +1,6 @@
 package ex03;
 
-public interface TransactionsList extends RuntimeException{
+public interface TransactionsList {
 
     public void addTransaction(Transaction newTransaction);
     public void removeTransaction(String transactionId);

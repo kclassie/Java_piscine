@@ -1,3 +1,4 @@
+
 public class Program{
 
     public static int count;
@@ -8,24 +9,31 @@ public class Program{
             throw new NotValidArgumentException();
         }
 
-        count = Integer.parseInt(args[0].substring(8));
+        try {
+            count = Integer.parseInt(args[0].substring(8));
+        } catch (Exception e) {
+            throw new NotValidArgumentException();
+        }
 
-        Runnable eggR  = new EggThread(count);
-        Runnable henR  = new HenThread(count);
-        Thread egg = new Thread(eggR);
-        Thread hen = new Thread(henR);
+        EggHenPrinter printer = new EggHenPrinter(count);
+        Thread egg = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                printer.printEgg();
+            }
+        });
+
+        Thread hen = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                printer.printHen();
+            }
+        });
 
         egg.start();
         hen.start();
-
-        try {
-            egg.join();
-            hen.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < count; i++)
-            System.out.println("Human");
     }
 }
 
@@ -36,4 +44,3 @@ class NotValidArgumentException extends RuntimeException{
         System.out.println("Not valid argument");
     }
 }
-

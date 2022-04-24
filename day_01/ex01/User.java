@@ -1,5 +1,4 @@
-package ex02;
-import ex01.UserIdsGenerator;
+package ex01;
 
 public class User {
 
